@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ecosystem Simulator
 
-## Getting Started
+A React-based simulator for modeling food chain dynamics and species interactions. This tool allows users to create and simulate a simple ecosystem with producers and consumers, tracking caloric exchanges and survival rates.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Species Management
+- Support for 8 species:
+  - 5 Animals (consumers)
+  - 3 Producers
+- Each species has the following attributes:
+  - Name
+  - Calories Provided (energy output)
+  - Calories Needed (energy input)
+  - Food Sources (what the species eats)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Simulation Controls
+- **Save Initial Values**: Lock in starting conditions for future resets
+- **Run One Step**: Execute a single feeding cycle
+- **Reset**: Return all species to their saved initial state
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Visual Display
+- **Food Chain Display**: Visual representation of the ecosystem
+  - Color-coded cards for different species types:
+    - Yellow: Animals
+    - Green: Producers
+    - Red: Dead species
+  - Status indicators:
+    - "Has eaten this step" badge
+    - Death state (red background)
+- **Step History**: Chronological log of feeding events
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Simulation Rules
 
-## Learn More
+The simulation follows these core rules:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Feeding Priority**: 
+   - Species with the highest current Calories Provided eats first
+   - Only one species feeds per step
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Food Source Selection**:
+   - Species eat from their available food sources
+   - When multiple food sources have equal calories, feeding is distributed equally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Calorie Exchange**:
+   - When eating occurs:
+     - Food source's Calories Provided decreases by the amount eaten
+     - Eating species' Calories Needed decreases by the amount consumed
+   - Species dies when Calories Provided reaches 0
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Initial Setup**:
+   - Fill in details for all 8 species
+   - Click "Save Initial Values" to store starting conditions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Running Simulation**:
+   - Click "Run One Step" to execute one feeding cycle
+   - Monitor the Step History for feeding events
+   - Watch for species deaths (red cards) and feeding indicators
+
+3. **Reset & Modify**:
+   - Use Reset to return to saved initial values
+   - Modify species attributes as needed
+   - Save new initial values if desired
+
+## Technical Implementation
+
+Built using:
+- React
+- Tailwind CSS
+- shadcn/ui components
+
+Key features:
+- Responsive design
+- Real-time updates
+- State management for species attributes
+- Visual feedback for simulation events
+
+## Future Enhancements
+Potential areas for improvement:
+
+- Multiple feeding cycles per step
+- Population dynamics
+- Reproduction mechanics
+- Environmental factors
+- Export/import of ecosystem configurations
+- Visual representation of food web connections
+- Statistical analysis of ecosystem stability
+
+## Contributing
+
+Feel free to submit issues and enhancement requests. Pull requests are welcome with:
+- Clear description of changes
+- No breaking changes to core simulation rules
+- Maintained code style
+- Updated documentation
+
+## License
+
+MIT
