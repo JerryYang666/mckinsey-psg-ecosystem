@@ -120,11 +120,11 @@ const EcosystemSimulator = () => {
           {[0, 1].map(index => (
             <Card key={index} className={`w-64 h-48 p-4 ${species[index].isDead ? 'bg-red-200' : 'bg-yellow-100'}`}>
               <CardContent className="p-0">
-                <div className="text-xs font-bold">Animal #{index + 1}</div>
-                <div className="text-sm font-medium">{species[index].name || 'Unnamed'}</div>
-                <div className="text-xs mt-1">Provides: {species[index].calProvided || 0} cal</div>
-                <div className="text-xs">Needs: {species[index].calNeeded || 0} cal</div>
-                <div className="text-xs truncate">Eats: {species[index].eats || 'None'}</div>
+                <div className="text-sm font-bold">Animal #{index + 1}</div>
+                <div className="text-base font-medium">{species[index].name || 'Unnamed'}</div>
+                <div className="text-sm mt-1">Provides: {species[index].calProvided || 0} cal</div>
+                <div className="text-sm">Needs: {species[index].calNeeded || 0} cal</div>
+                <div className="text-sm">Eats: {species[index].eats || 'None'}</div>
                 {species[index].hasEatenThisStep && (
                   <div className="mt-1 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
                     Has eaten this step
