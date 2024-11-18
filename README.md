@@ -98,4 +98,4 @@ Feel free to submit issues and enhancement requests. Pull requests are welcome w
 
 ## License
 
-MIT
+GNU GENERAL PUBLIC LICENSE Version 3
