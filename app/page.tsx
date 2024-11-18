@@ -188,13 +188,13 @@ const EcosystemSimulator = () => {
 
   return (
     <div className="flex">
-      <div className="p-2 max-w-sm">
+      <div className="p-2 max-w-md w-1/3">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Ecosystem Builder</h2>
           <Button 
             onClick={handleSaveInitialValues}
             variant="outline"
-            className="text-sm"
+            className="text-sm fixed top-2 right-1/2"
           >
             Save Initial Values
           </Button>
